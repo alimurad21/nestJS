@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-// src/books/books.module.ts
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BooksController } from './books.controller';

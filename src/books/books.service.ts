@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-// src/books/books.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -19,13 +18,11 @@ export class BooksService {
     if (!book) {
       throw new NotFoundException(`Book with ID ${id} not found`);
     }
-    console.log('book in books.service', book);
     return book;
   }
 
   async create(createBookDto: CreateBookDto): Promise<Book> {
     const newBook = new this.bookModel(createBookDto);
-    console.log('newBook',newBook)
     return newBook.save();
   }
 
@@ -34,7 +31,6 @@ export class BooksService {
     if (!existingBook) {
       throw new NotFoundException(`Book with ID ${id} not found`);
     }
-    console.log('existingBook',existingBook)
     return existingBook;
   }
 

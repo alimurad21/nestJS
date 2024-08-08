@@ -29,7 +29,6 @@ export class BooksController {
   @Post()
   async create(@Body() createBookDto: CreateBookDto) {
     createBookDto.publishedDate = new Date(createBookDto.publishedDate);
-    console.log('Transformed createBookDto:', createBookDto);
     return this.booksService.create(createBookDto);
   }
 
