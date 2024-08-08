@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { IsString, IsDate } from 'class-validator';
+import { IsString } from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class CreateBookDto {
   @IsString()
@@ -8,11 +9,10 @@ export class CreateBookDto {
   @IsString()
   author: string;
 
-  @IsDate()
+  @Type(() => Date)
   publishedDate: Date;
 
   @IsString()
   description: string;
 }
-
 

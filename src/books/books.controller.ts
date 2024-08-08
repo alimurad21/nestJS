@@ -9,8 +9,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { BooksService } from './books.service';
-import { CreateBookDto,  } from './dto/create-book.dto';
-import {UpdateBookDto} from './dto/update-book.dto'
+import { CreateBookDto } from './dto/create-book.dto';
+import { UpdateBookDto } from './dto/update-book.dto';
 
 @Controller('books')
 export class BooksController {
@@ -28,6 +28,8 @@ export class BooksController {
 
   @Post()
   async create(@Body() createBookDto: CreateBookDto) {
+    createBookDto.publishedDate = new Date(createBookDto.publishedDate);
+    console.log('Transformed createBookDto:', createBookDto);
     return this.booksService.create(createBookDto);
   }
 
